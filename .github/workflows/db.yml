@@ -8,6 +8,11 @@ on:
     paths:
     - src/Services/IdentityServer/src/**
     - .github/workflows/db.yml
+  pull_request:
+    branches: [ master ]
+    paths:
+    - src/Services/IdentityServer/src/**
+    - .github/workflows/db.yml    
 
 env:
   DOTNET_VERSION: 7.0.x
