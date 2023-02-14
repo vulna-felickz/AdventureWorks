@@ -30,11 +30,10 @@ jobs:
         uses: actions/setup-dotnet@v1
         with:
           dotnet-version: ${{ env.DOTNET_VERSION }}
-				
+
       - name: Build and run unit tests
         run: dotnet restore ./src/IdentityServer/src/AW.Services.IdentityServer.Database.Build/AW.Services.IdentityServer.Database.Build.csproj
-	 
+
       - name: Build and run unit tests
         run: |
           dotnet build ./src/IdentityServer/src/AW.Services.IdentityServer.Database.Build/AW.Services.IdentityServer.Database.Build.csproj
-	 
