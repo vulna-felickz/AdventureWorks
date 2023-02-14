@@ -31,7 +31,7 @@ jobs:
         with:
           dotnet-version: ${{ env.DOTNET_VERSION }}
 
-      - name: Restore
+      - name: Restore Packages
         run: dotnet restore ./src/Services/IdentityServer/src/AW.Services.IdentityServer.Database.Build/AW.Services.IdentityServer.Database.Build.csproj
 
       - name: Initialize CodeQL
