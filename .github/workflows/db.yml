@@ -36,9 +36,19 @@ jobs:
         with:
           dotnet-version: ${{ env.DOTNET_VERSION }}
 
-      - name: Build and run unit tests
+      - name: Restore Packages
         run: dotnet restore ./src/Services/IdentityServer/src/AW.Services.IdentityServer.Database.Build/AW.Services.IdentityServer.Database.Build.csproj
+
+      - name: Initialize CodeQL
+        uses: github/codeql-action/init@v2
+        with:
+          languages: csharp
 
       - name: Build and run unit tests
         run: |
           dotnet build ./src/Services/IdentityServer/src/AW.Services.IdentityServer.Database.Build/AW.Services.IdentityServer.Database.Build.csproj
+    
+      - name: Perform CodeQL Analysis
+        uses: github/codeql-action/analyze@v2
+        with:
+          category: "/language:csharp"
